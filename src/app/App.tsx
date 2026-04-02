@@ -1,15 +1,14 @@
 import { useState } from "react";
 
-const IMAGES = {
-  heroBg: "https://images.unsplash.com/photo-1673526759317-be71a1243e3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdyYWRpZW50JTIwcHVycGxlJTIwYmx1ZSUyMGJhY2tncm91bmR8ZW58MXx8fHwxNzc1MDI1NDg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  heroScreen: "https://images.unsplash.com/photo-1720135885007-454165745e21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBkYXNoYm9hcmQlMjBhcHAlMjBpbnRlcmZhY2UlMjBkYXJrfGVufDF8fHx8MTc3NTExMTUxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-  gallery1: "https://images.unsplash.com/photo-1758691736843-90f58dce465e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwY29sbGFib3JhdGlvbiUyMG9mZmljZSUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NzUxMDg1MTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  gallery2: "https://images.unsplash.com/photo-1770681381576-f1fdceb2ea01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhbmFseXRpY3MlMjBkYXRhJTIwdmlzdWFsaXphdGlvbiUyMHNjcmVlbnxlbnwxfHx8fDE3NzUxMDk0MDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  gallery3: "https://images.unsplash.com/photo-1573770012830-7cf1777db19c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwcHJvZHVjdCUyMGRlc2lnbiUyMHN0dWRpb3xlbnwxfHx8fDE3NzUxMTE1MTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  gallery4: "https://images.unsplash.com/photo-1561356476-2abbdca2b22f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFnZW5jeSUyMG1vZGVybiUyMGludGVyaW9yfGVufDF8fHx8MTc3NTExMTUxOXww&ixlib=rb-4.1.0&q=80&w=1080",
-  author1: "https://images.unsplash.com/photo-1623594675959-02360202d4d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHNtaWxpbmclMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NzUxMTE1MTh8MA&ixlib=rb-4.1.0&q=80&w=400",
-  author2: "https://images.unsplash.com/photo-1723537742563-15c3d351dbf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMGJ1c2luZXNzfGVufDF8fHx8MTc3NTEwODg2NHww&ixlib=rb-4.1.0&q=80&w=400",
-};
+import imgHeroBg     from "figma:asset/8a64a84ca204cd4bc4f075371baa76192838cc82.png";
+import imgHeroScreen from "figma:asset/cb539a879451a5eaca6ab6323fd7d52c1d9326af.png";
+import imgGallery1   from "figma:asset/a5bb04c6e51fb144f4a45175d6a40a4d57122eb0.png";
+import imgGallery2   from "figma:asset/34824412ee030057b26013f4987a47f91c1638ea.png";
+import imgGallery3   from "figma:asset/5df41fc0f915f3e9049eb5c49b269edb1ef4ab76.png";
+import imgGallery4   from "figma:asset/f98ac66209e6ec4bf25b18555c89ea6aa800fc64.png";
+import imgAuthor1    from "figma:asset/6480a52b4ccf55f226f31501e403af0ce0530229.png";
+import imgAuthor2    from "figma:asset/3c8413f5b8f065f5e119be497bd42be5d5fa1dfe.png";
+import imgFooterBg   from "figma:asset/ec9ece07e59d387940a98bfe1f094d83aab63bc3.png";
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 function Navbar() {
@@ -19,14 +18,9 @@ function Navbar() {
       <span className="font-['Inter:Bold',sans-serif] font-bold text-[20px] tracking-[-0.5px] text-black">
         Namedly
       </span>
-      {/* Desktop nav */}
       <nav className="hidden md:flex items-center gap-8">
         {["Product", "Features", "Pricing", "Blog"].map((item) => (
-          <a
-            key={item}
-            href="#"
-            className="font-['Inter:Medium',sans-serif] font-medium text-[15px] text-black/60 hover:text-black transition-colors tracking-[-0.03px]"
-          >
+          <a key={item} href="#" className="font-['Inter:Medium',sans-serif] font-medium text-[15px] text-black/60 hover:text-black transition-colors tracking-[-0.03px]">
             {item}
           </a>
         ))}
@@ -39,25 +33,21 @@ function Navbar() {
           Get started
         </a>
       </div>
-      {/* Mobile menu button */}
       <button
         className="md:hidden p-2 rounded-[8px] hover:bg-black/5 transition-colors"
         onClick={() => setOpen(!open)}
         aria-label="Toggle menu"
       >
         <div className="flex flex-col gap-[5px] w-[22px]">
-          <span className={`block h-[2px] bg-black rounded-full transition-all ${open ? "rotate-45 translate-y-[7px]" : ""}`} />
-          <span className={`block h-[2px] bg-black rounded-full transition-all ${open ? "opacity-0" : ""}`} />
-          <span className={`block h-[2px] bg-black rounded-full transition-all ${open ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+          <span className={`block h-[2px] bg-black rounded-full transition-all duration-200 ${open ? "rotate-45 translate-y-[7px]" : ""}`} />
+          <span className={`block h-[2px] bg-black rounded-full transition-all duration-200 ${open ? "opacity-0" : ""}`} />
+          <span className={`block h-[2px] bg-black rounded-full transition-all duration-200 ${open ? "-rotate-45 -translate-y-[7px]" : ""}`} />
         </div>
       </button>
-      {/* Mobile dropdown */}
       {open && (
         <div className="absolute top-[64px] left-0 right-0 bg-white border-b border-black/[0.08] px-6 py-6 flex flex-col gap-4 md:hidden shadow-lg">
           {["Product", "Features", "Pricing", "Blog"].map((item) => (
-            <a key={item} href="#" className="font-['Inter:Medium',sans-serif] font-medium text-[16px] text-black/70">
-              {item}
-            </a>
+            <a key={item} href="#" className="font-['Inter:Medium',sans-serif] font-medium text-[16px] text-black/70">{item}</a>
           ))}
           <hr className="border-black/[0.08]" />
           <a href="#" className="font-['Inter:Medium',sans-serif] font-medium text-[16px] text-black/70">Log in</a>
@@ -74,19 +64,12 @@ function Navbar() {
 function Hero() {
   return (
     <section className="relative w-full min-h-[100svh] flex flex-col items-center justify-start overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0">
-        <img
-          src={IMAGES.heroBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <img src={imgHeroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center pt-[140px] md:pt-[160px] xl:pt-[180px] px-6 md:px-12 xl:px-20 pb-0 w-full max-w-[1200px] mx-auto">
-        {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
           <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
           <span className="font-['Inter:Medium',sans-serif] font-medium text-[13px] text-white/90 tracking-[0.01em]">
@@ -94,7 +77,6 @@ function Hero() {
           </span>
         </div>
 
-        {/* Headline */}
         <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[44px] md:text-[60px] xl:text-[76px] text-white leading-[1.08] tracking-[-2px] md:tracking-[-2.5px] xl:tracking-[-3px] max-w-[900px]">
           Build products your team will{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-indigo-300">
@@ -102,41 +84,27 @@ function Hero() {
           </span>
         </h1>
 
-        {/* Subheading */}
-        <p className="mt-6 font-['Inter:Regular',sans-serif] font-normal text-[17px] md:text-[19px] xl:text-[21px] text-white/70 leading-[1.55] max-w-[580px]">
+        <p className="mt-6 font-['Inter:Regular',sans-serif] text-[17px] md:text-[19px] xl:text-[21px] text-white/70 leading-[1.55] max-w-[580px]">
           Namedly helps teams ship faster, collaborate better, and stay aligned — all in one beautifully simple workspace.
         </p>
 
-        {/* CTA Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-          <a
-            href="#"
-            className="bg-white text-black font-['Inter:Semi_Bold',sans-serif] font-semibold text-[16px] px-8 py-4 rounded-[14px] hover:bg-white/90 transition-all shadow-lg shadow-black/20 tracking-[-0.03px] text-center"
-          >
+          <a href="#" className="bg-white text-black font-['Inter:Semi_Bold',sans-serif] font-semibold text-[16px] px-8 py-4 rounded-[14px] hover:bg-white/90 transition-all shadow-lg shadow-black/20 tracking-[-0.03px] text-center">
             Start for free
           </a>
-          <a
-            href="#"
-            className="relative border border-white/25 text-white font-['Inter:Medium',sans-serif] font-medium text-[16px] px-8 py-4 rounded-[14px] hover:bg-white/10 transition-all backdrop-blur-sm tracking-[-0.03px] text-center"
-          >
+          <a href="#" className="border border-white/25 text-white font-['Inter:Medium',sans-serif] font-medium text-[16px] px-8 py-4 rounded-[14px] hover:bg-white/10 transition-all backdrop-blur-sm tracking-[-0.03px] text-center">
             See how it works →
           </a>
         </div>
 
-        {/* Social proof */}
         <p className="mt-8 font-['Inter:Regular',sans-serif] text-[13px] text-white/40 tracking-[0.02em]">
           Trusted by 2,000+ teams worldwide
         </p>
 
-        {/* Hero Screenshot */}
         <div className="mt-12 md:mt-16 w-full max-w-[1000px] mx-auto">
           <div className="relative rounded-[20px] md:rounded-[28px] overflow-hidden border-[8px] border-white/10 shadow-[0_40px_120px_rgba(0,0,0,0.5)]">
-            <img
-              src={IMAGES.heroScreen}
-              alt="Product screenshot"
-              className="w-full h-auto block"
-            />
-            <div className="absolute inset-0 rounded-[12px] md:rounded-[20px] ring-1 ring-white/10 pointer-events-none" />
+            <img src={imgHeroScreen} alt="Product screenshot" className="w-full h-auto block" />
+            <div className="absolute inset-0 ring-1 ring-white/10 pointer-events-none rounded-[12px] md:rounded-[20px]" />
           </div>
         </div>
       </div>
@@ -146,43 +114,18 @@ function Hero() {
 
 // ─── Features ─────────────────────────────────────────────────────────────────
 const FEATURES = [
-  {
-    icon: "⚡",
-    title: "Lightning fast",
-    desc: "Built on the edge — responses in under 50ms anywhere on Earth.",
-  },
-  {
-    icon: "🔒",
-    title: "Enterprise security",
-    desc: "SOC 2 Type II certified. Your data is encrypted at rest and in transit.",
-  },
-  {
-    icon: "🔗",
-    title: "100+ integrations",
-    desc: "Connects seamlessly with Slack, Notion, GitHub, Jira, and more.",
-  },
-  {
-    icon: "📊",
-    title: "Real-time analytics",
-    desc: "Dashboards that update live so your team always has the full picture.",
-  },
-  {
-    icon: "🤖",
-    title: "AI-powered",
-    desc: "Smart suggestions that learn from your team's workflow over time.",
-  },
-  {
-    icon: "🌍",
-    title: "Built for scale",
-    desc: "From 5 to 50,000 users — Namedly grows as fast as you do.",
-  },
+  { icon: "⚡", title: "Lightning fast",       desc: "Built on the edge — responses in under 50ms anywhere on Earth." },
+  { icon: "🔒", title: "Enterprise security",  desc: "SOC 2 Type II certified. Your data is encrypted at rest and in transit." },
+  { icon: "🔗", title: "100+ integrations",    desc: "Connects seamlessly with Slack, Notion, GitHub, Jira, and more." },
+  { icon: "📊", title: "Real-time analytics",  desc: "Dashboards that update live so your team always has the full picture." },
+  { icon: "🤖", title: "AI-powered",           desc: "Smart suggestions that learn from your team's workflow over time." },
+  { icon: "🌍", title: "Built for scale",      desc: "From 5 to 50,000 users — Namedly grows as fast as you do." },
 ];
 
 function Features() {
   return (
     <section className="bg-[#fafafa] w-full py-[80px] md:py-[100px] xl:py-[120px] px-6 md:px-12 xl:px-20">
       <div className="max-w-[1200px] mx-auto">
-        {/* Header */}
         <div className="flex flex-col gap-4 mb-[56px] md:mb-[72px]">
           <span className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[13px] text-violet-600 tracking-[0.08em] uppercase">
             Everything you need
@@ -191,19 +134,14 @@ function Features() {
             One platform, endless possibilities
           </h2>
         </div>
-
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
           {FEATURES.map((f) => (
-            <div
-              key={f.title}
-              className="bg-white rounded-[16px] p-6 xl:p-8 border border-black/[0.07] hover:border-violet-200 hover:shadow-lg hover:shadow-violet-100/50 transition-all duration-300 group"
-            >
+            <div key={f.title} className="bg-white rounded-[16px] p-6 xl:p-8 border border-black/[0.07] hover:border-violet-200 hover:shadow-lg hover:shadow-violet-100/50 transition-all duration-300 group">
               <div className="text-[32px] mb-4">{f.icon}</div>
               <h3 className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[17px] text-black tracking-[-0.04px] mb-2 group-hover:text-violet-700 transition-colors">
                 {f.title}
               </h3>
-              <p className="font-['Inter:Regular',sans-serif] font-normal text-[15px] text-black/55 leading-[1.6]">
+              <p className="font-['Inter:Regular',sans-serif] text-[15px] text-black/55 leading-[1.6]">
                 {f.desc}
               </p>
             </div>
@@ -214,12 +152,11 @@ function Features() {
   );
 }
 
-// ─── Gallery / Showcase ────────────────────────────────────────────────────────
+// ─── Showcase ─────────────────────────────────────────────────────────────────
 function Showcase() {
   return (
     <section className="bg-white w-full py-[80px] md:py-[100px] xl:py-[120px] px-6 md:px-12 xl:px-20">
       <div className="max-w-[1200px] mx-auto">
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-[48px] md:mb-[64px]">
           <div className="flex flex-col gap-4 max-w-[560px]">
             <span className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[13px] text-violet-600 tracking-[0.08em] uppercase">
@@ -228,52 +165,31 @@ function Showcase() {
             <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[32px] md:text-[40px] xl:text-[48px] text-black tracking-[-1px] md:tracking-[-1.5px] leading-[1.15]">
               A really compelling headline
             </h2>
-            <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] md:text-[18px] text-black/55 leading-[1.6]">
+            <p className="font-['Inter:Regular',sans-serif] text-[16px] md:text-[18px] text-black/55 leading-[1.6]">
               Call out a feature, benefit, or value of your site, then link to a page where people can learn more about it.
             </p>
           </div>
-          <a
-            href="#"
-            className="bg-black text-white font-['Inter:Medium',sans-serif] font-medium text-[15px] px-6 py-3 rounded-[12px] hover:bg-black/80 transition-colors whitespace-nowrap self-start md:self-auto"
-          >
+          <a href="#" className="bg-black text-white font-['Inter:Medium',sans-serif] font-medium text-[15px] px-6 py-3 rounded-[12px] hover:bg-black/80 transition-colors whitespace-nowrap self-start md:self-auto">
             Explore all features
           </a>
         </div>
 
-        {/* Staggered gallery: mobile single col, tablet+ two col */}
+        {/* 2-column stagger gallery */}
         <div className="flex flex-col md:flex-row gap-6 items-start">
-          {/* Col 1 */}
           <div className="flex flex-col gap-6 w-full md:flex-1">
             <div className="h-[280px] md:h-[320px] xl:h-[400px] rounded-[16px] overflow-hidden">
-              <img
-                src={IMAGES.gallery1}
-                alt="Team collaboration"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
+              <img src={imgGallery1} alt="Gallery" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="h-[280px] md:h-[320px] xl:h-[400px] rounded-[16px] overflow-hidden">
-              <img
-                src={IMAGES.gallery2}
-                alt="Data analytics"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
+              <img src={imgGallery2} alt="Gallery" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
-          {/* Col 2 — offset */}
           <div className="flex flex-col gap-6 w-full md:flex-1 md:pt-[80px]">
             <div className="h-[280px] md:h-[320px] xl:h-[400px] rounded-[16px] overflow-hidden">
-              <img
-                src={IMAGES.gallery3}
-                alt="Design studio"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
+              <img src={imgGallery3} alt="Gallery" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
             <div className="h-[280px] md:h-[320px] xl:h-[400px] rounded-[16px] overflow-hidden">
-              <img
-                src={IMAGES.gallery4}
-                alt="Modern office"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
+              <img src={imgGallery4} alt="Gallery" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
           </div>
         </div>
@@ -285,19 +201,17 @@ function Showcase() {
 // ─── Testimonials ─────────────────────────────────────────────────────────────
 const TESTIMONIALS = [
   {
-    avatar: IMAGES.author1,
+    avatar: imgAuthor1,
     name: "Sarah Mitchell",
     role: "Head of Product at Loopify",
-    quote:
-      "Namedly completely changed how our team works. We shipped 3x faster within the first month. I honestly can't imagine going back to how things were before.",
+    quote: "Namedly completely changed how our team works. We shipped 3x faster within the first month. I honestly can't imagine going back to how things were before.",
     stars: 5,
   },
   {
-    avatar: IMAGES.author2,
+    avatar: imgAuthor2,
     name: "James Park",
     role: "CTO at Verdicto",
-    quote:
-      "The best investment we've made this year. The AI suggestions alone save our team hours every week. Setup took less than ten minutes and the onboarding was flawless.",
+    quote: "The best investment we've made this year. The AI suggestions alone save our team hours every week. Setup took less than ten minutes and the onboarding was flawless.",
     stars: 5,
   },
 ];
@@ -318,7 +232,6 @@ function Testimonials() {
   return (
     <section className="bg-[#fafafa] w-full py-[80px] md:py-[100px] xl:py-[120px] px-6 md:px-12 xl:px-20">
       <div className="max-w-[1200px] mx-auto">
-        {/* Header */}
         <div className="flex flex-col gap-4 mb-[48px] md:mb-[64px]">
           <span className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[13px] text-violet-600 tracking-[0.08em] uppercase">
             Testimonials
@@ -326,35 +239,22 @@ function Testimonials() {
           <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[32px] md:text-[40px] xl:text-[48px] text-black tracking-[-1px] md:tracking-[-1.5px] leading-[1.15]">
             Loved by teams worldwide
           </h2>
-          <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] md:text-[18px] text-black/55 leading-[1.6] max-w-[480px]">
+          <p className="font-['Inter:Regular',sans-serif] text-[16px] md:text-[18px] text-black/55 leading-[1.6] max-w-[480px]">
             A little line about what's being said and who's saying it.
           </p>
         </div>
-
-        {/* Cards */}
         <div className="flex flex-col md:flex-row gap-6">
           {TESTIMONIALS.map((t) => (
-            <div
-              key={t.name}
-              className="bg-white flex-1 rounded-[20px] p-8 border border-black/[0.07] shadow-sm hover:shadow-md transition-shadow duration-300"
-            >
+            <div key={t.name} className="bg-white flex-1 rounded-[20px] p-8 border border-black/[0.07] shadow-sm hover:shadow-md transition-shadow duration-300">
               <Stars count={t.stars} />
-              <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] md:text-[18px] text-black leading-[1.65] mb-8">
+              <p className="font-['Inter:Regular',sans-serif] text-[16px] md:text-[18px] text-black leading-[1.65] mb-8">
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-3">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover shrink-0"
-                />
+                <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover shrink-0" />
                 <div>
-                  <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[15px] text-black tracking-[-0.02px]">
-                    {t.name}
-                  </p>
-                  <p className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-black/50">
-                    {t.role}
-                  </p>
+                  <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold text-[15px] text-black tracking-[-0.02px]">{t.name}</p>
+                  <p className="font-['Inter:Regular',sans-serif] text-[14px] text-black/50">{t.role}</p>
                 </div>
               </div>
             </div>
@@ -371,10 +271,8 @@ function CTABanner() {
     <section className="w-full px-6 md:px-12 xl:px-20 py-[80px] md:py-[100px] bg-white">
       <div className="max-w-[1200px] mx-auto">
         <div className="relative rounded-[24px] md:rounded-[32px] overflow-hidden bg-gradient-to-br from-violet-600 via-indigo-600 to-purple-700 px-8 md:px-16 xl:px-20 py-16 md:py-20 text-center">
-          {/* Decorative blobs */}
           <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white/10 blur-3xl pointer-events-none" />
           <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-white/10 blur-3xl pointer-events-none" />
-
           <div className="relative z-10 flex flex-col items-center gap-6">
             <h2 className="font-['Inter:Bold',sans-serif] font-bold text-[32px] md:text-[44px] xl:text-[52px] text-white tracking-[-1px] md:tracking-[-1.5px] leading-[1.1] max-w-[700px]">
               Ready to level up your team?
@@ -383,16 +281,10 @@ function CTABanner() {
               Start your free trial today. No credit card required. Cancel anytime.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mt-2">
-              <a
-                href="#"
-                className="bg-white text-violet-700 font-['Inter:Semi_Bold',sans-serif] font-semibold text-[16px] px-8 py-4 rounded-[14px] hover:bg-white/90 transition-colors shadow-xl shadow-black/20 tracking-[-0.02px]"
-              >
+              <a href="#" className="bg-white text-violet-700 font-['Inter:Semi_Bold',sans-serif] font-semibold text-[16px] px-8 py-4 rounded-[14px] hover:bg-white/90 transition-colors shadow-xl shadow-black/20 tracking-[-0.02px]">
                 Get started for free
               </a>
-              <a
-                href="#"
-                className="border border-white/30 text-white font-['Inter:Medium',sans-serif] font-medium text-[16px] px-8 py-4 rounded-[14px] hover:bg-white/10 transition-colors"
-              >
+              <a href="#" className="border border-white/30 text-white font-['Inter:Medium',sans-serif] font-medium text-[16px] px-8 py-4 rounded-[14px] hover:bg-white/10 transition-colors">
                 Talk to sales
               </a>
             </div>
@@ -405,19 +297,19 @@ function CTABanner() {
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 const NAV_COLS = [
-  { title: "Product", links: ["Overview", "Features", "Pricing", "Changelog", "Roadmap"] },
-  { title: "Company", links: ["About", "Blog", "Careers", "Press", "Contact"] },
+  { title: "Product",   links: ["Overview", "Features", "Pricing", "Changelog", "Roadmap"] },
+  { title: "Company",   links: ["About", "Blog", "Careers", "Press", "Contact"] },
   { title: "Resources", links: ["Docs", "API reference", "Status", "Community", "Templates"] },
-  { title: "Legal", links: ["Privacy", "Terms", "Security", "Cookies"] },
+  { title: "Legal",     links: ["Privacy", "Terms", "Security", "Cookies"] },
 ];
 
 function Footer() {
   return (
-    <footer className="bg-[#0f0f11] w-full pt-[72px] pb-[48px] px-6 md:px-12 xl:px-20">
-      <div className="max-w-[1200px] mx-auto">
-        {/* Top row */}
-        <div className="flex flex-col md:flex-row gap-12 md:gap-0 md:justify-between pb-16 border-b border-white/[0.08]">
-          {/* Brand */}
+    <footer className="relative w-full">
+      <img src={imgFooterBg} alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" />
+      <div className="absolute inset-0 bg-black/70 pointer-events-none" />
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-12 xl:px-20 pt-[72px] pb-[48px]">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-0 md:justify-between pb-16 border-b border-white/[0.12]">
           <div className="flex flex-col gap-4 max-w-[260px]">
             <span className="font-['Inter:Bold',sans-serif] font-bold text-[22px] text-white tracking-[-0.5px]">
               Namedly
@@ -426,8 +318,6 @@ function Footer() {
               The modern workspace for ambitious teams who want to ship great products.
             </p>
           </div>
-
-          {/* Nav grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 xl:gap-20">
             {NAV_COLS.map((col) => (
               <nav key={col.title} className="flex flex-col gap-3">
@@ -435,11 +325,7 @@ function Footer() {
                   {col.title}
                 </p>
                 {col.links.map((link) => (
-                  <a
-                    key={link}
-                    href="#"
-                    className="font-['Inter:Regular',sans-serif] font-normal text-[14px] text-white/45 hover:text-white/90 transition-colors leading-[1.5]"
-                  >
+                  <a key={link} href="#" className="font-['Inter:Regular',sans-serif] text-[14px] text-white/45 hover:text-white/90 transition-colors leading-[1.5]">
                     {link}
                   </a>
                 ))}
@@ -447,19 +333,13 @@ function Footer() {
             ))}
           </div>
         </div>
-
-        {/* Bottom row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8">
           <p className="font-['Inter:Regular',sans-serif] text-[13px] text-white/30">
             © 2026 Namedly, Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
             {["Twitter", "LinkedIn", "GitHub"].map((s) => (
-              <a
-                key={s}
-                href="#"
-                className="font-['Inter:Regular',sans-serif] text-[13px] text-white/35 hover:text-white/80 transition-colors"
-              >
+              <a key={s} href="#" className="font-['Inter:Regular',sans-serif] text-[13px] text-white/35 hover:text-white/80 transition-colors">
                 {s}
               </a>
             ))}

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "download-images": "node scripts/download-images.mjs",
     "dev": "vite"
   },
   "dependencies": {
